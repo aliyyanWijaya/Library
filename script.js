@@ -17,6 +17,11 @@ function addBookToLibrary(title, author, pages, read) {
 
     let cardContainer = document.querySelector(".container");
 
+    const bookContainer = document.createElement("div");
+    bookContainer.classList.add("book-container");
+  
+    
+
     //add the text title, author, pages, and read to the div
     const newDiv1 = document.createElement("div");
     newDiv1.classList.add("title-container");
@@ -37,11 +42,13 @@ function addBookToLibrary(title, author, pages, read) {
     newDiv3.append(bookPages);
     newDiv4.append(bookRead);
     
-    cardContainer.append(newDiv1);
-    cardContainer.append(newDiv2);
-    cardContainer.append(newDiv3);
-    cardContainer.append(newDiv4);
-
+    bookContainer.append(newDiv1);
+    bookContainer.append(newDiv2);
+    bookContainer.append(newDiv3);
+    bookContainer.append(newDiv4);
+    
+    cardContainer.append(bookContainer);
 }
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
+addBookToLibrary("Laskar Pelangi", "Andrea Hirata", 295, "not read yet");
