@@ -40,7 +40,7 @@ function addBookToLibrary(title, author, pages, read) {
     const bookTitle = "Title: " + newBook.title;
     const bookAuthor = "Author: " + newBook.author;
     const bookPages = "Number of pages: " + newBook.pages;
-    let bookRead = "Did you finish read this?: " + newBook.read;
+    let bookRead = "Finish read : " + newBook.read;
     
     newDiv1.append(bookTitle);
     newDiv2.append(bookAuthor);
@@ -66,32 +66,32 @@ function addBookToLibrary(title, author, pages, read) {
 
     cardContainer.append(bookContainer);
 
-    const editButton = document.querySelectorAll(".edit-button");
-    editButton.forEach((item) => {
-      item.addEventListener("click", () => {
-      const idContainer = item.parentNode.id;
-    
-      const objectFind = myLibrary.findIndex (item => item.id === idContainer);
-      let toggleRead = myLibrary[objectFind].read;
-      if (toggleRead === "yes") {
-        toggleRead = "no";
-      } else {
-        toggleRead = "yes";
+      readButton.addEventListener("click", () => {
+      const idContainer = bookContainer.id;
+      const objectIndex = myLibrary.findIndex(book => book.id === idContainer);
+      
+      if (objectIndex !== -1) {
+        // Toggle the value in the array
+        myLibrary[objectIndex].read = myLibrary[objectIndex].read === "yes" ? "no" : "yes";
+        
+        // Update the DOM
+        const editText = bookContainer.querySelector(".read-container");
+        editText.textContent = "Finish read: " + myLibrary[objectIndex].read;
       }
+    });
 
-      console.log(toggleRead);
-      const editText = document.querySelector(`#${idContainer} .read-container`);
-      editText.textContent = "Did you finish read this?: " + toggleRead;
-
-    })
-
+  }
     
-})
-    
-}
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not yet");
-addBookToLibrary("Laskar Pelangi", "Andrea Hirata", 295, "done!");
+addBookToLibrary("1984", "George Orwell", 328, "done");
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "in progress");
+addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "done");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "not yet");
+addBookToLibrary("Moby-Dick", "Herman Melville", 635, "in progress");
+addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 214, "done");
+addBookToLibrary("Brave New World", "Aldous Huxley", 311, "not yet");
+addBookToLibrary("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 443, "done");
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
