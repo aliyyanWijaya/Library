@@ -31,10 +31,10 @@ function addBookToLibrary(title, author, pages, read) {
     const newDiv4 = document.createElement("div");
     newDiv4.classList.add("read-container");
     //;
-    const bookTitle = newBook.title;
-    const bookAuthor = newBook.author;
-    const bookPages = newBook.pages;
-    const bookRead = newBook.read;
+    const bookTitle = "Title: " + newBook.title;
+    const bookAuthor = "Author: " + newBook.author;
+    const bookPages = "Number of pages: " + newBook.pages;
+    const bookRead = "Did you finish read this?: " + newBook.read;
     
     newDiv1.append(bookTitle);
     newDiv2.append(bookAuthor);
@@ -56,8 +56,8 @@ function addBookToLibrary(title, author, pages, read) {
     
 }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-addBookToLibrary("Laskar Pelangi", "Andrea Hirata", 295, "not read yet");
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "not yet");
+addBookToLibrary("Laskar Pelangi", "Andrea Hirata", 295, "done!");
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
