@@ -1,13 +1,19 @@
 const myLibrary = [];
 
-
-
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
   this.id = crypto.randomUUID();
+}
+
+Book.prototype.toggleRead = () => {
+  if(this.valueOf == yes) {
+    return "no";
+  } else {
+    return "yes";
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -34,7 +40,7 @@ function addBookToLibrary(title, author, pages, read) {
     const bookTitle = "Title: " + newBook.title;
     const bookAuthor = "Author: " + newBook.author;
     const bookPages = "Number of pages: " + newBook.pages;
-    const bookRead = "Did you finish read this?: " + newBook.read;
+    let bookRead = "Did you finish read this?: " + newBook.read;
     
     newDiv1.append(bookTitle);
     newDiv2.append(bookAuthor);
@@ -59,6 +65,28 @@ function addBookToLibrary(title, author, pages, read) {
     bookContainer.append(readButton);
 
     cardContainer.append(bookContainer);
+
+    const editButton = document.querySelectorAll(".edit-button");
+    editButton.forEach((item) => {
+      item.addEventListener("click", () => {
+      const idContainer = item.parentNode.id;
+    
+      const objectFind = myLibrary.findIndex (item => item.id === idContainer);
+      let toggleRead = myLibrary[objectFind].read;
+      if (toggleRead === "yes") {
+        toggleRead = "no";
+      } else {
+        toggleRead = "yes";
+      }
+
+      console.log(toggleRead);
+      const editText = document.querySelector(`#${idContainer} .read-container`);
+      editText.textContent = "Did you finish read this?: " + toggleRead;
+
+    })
+
+    
+})
     
 }
 
@@ -105,7 +133,9 @@ deleteButton.forEach((card) => {
       myLibrary.splice(indexToRemove, 1);
     }
 
-    console.log(myLibrary);
+    
   })
 })
+
+
 
