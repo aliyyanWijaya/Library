@@ -1,8 +1,24 @@
+body {
+    display: grid;
+    grid-template-areas: 
+        ". container ."
+        ". dialog .";
+}
+
 div {
     border: 2px solid black;
 }
 
 .container {
+    grid-area: container;
     display: grid;
     gap: 5px;
+    margin-bottom: 50px;
+}
+
+.dialog-section {
+    grid-area: dialog;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
