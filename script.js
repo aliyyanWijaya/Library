@@ -56,13 +56,14 @@ function addBookToLibrary(title, author, pages, read) {
     const newButton = document.createElement("button");
     newButton.textContent = "Delete";
     newButton.classList.add("delete-button");
-    bookContainer.append(newButton);
+    
 
     //Edit read button
     const readButton = document.createElement("button");
     readButton.textContent = "Edit Read Status"
     readButton.classList.add("edit-button");
     bookContainer.append(readButton);
+    bookContainer.append(newButton);
 
     cardContainer.append(bookContainer);
 
