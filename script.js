@@ -19,6 +19,7 @@ function addBookToLibrary(title, author, pages, read) {
 
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("book-container");
+    bookContainer.id = newBook.id;
 
     //add the text title, author, pages, and read to the div
     const newDiv1 = document.createElement("div");
@@ -91,7 +92,14 @@ deleteButton.forEach((card) => {
   card.addEventListener("click", () => {
     console.log(card.parentNode)
     card.parentNode.remove();
-    console.log(myLibrary)
+    const idBook = card.parentNode.id;
+    const indexToRemove = myLibrary.findIndex (item => item.id === idBook);
+
+    if (indexToRemove !== -1) {
+      myLibrary.splice(indexToRemove, 1);
+    }
+
+    console.log(myLibrary);
   })
 })
 
