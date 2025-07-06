@@ -81,6 +81,21 @@ function addBookToLibrary(title, author, pages, read) {
       }
     });
 
+    const deleteButton = document.querySelectorAll(".delete-button");
+deleteButton.forEach((card) => {
+  card.addEventListener("click", () => {
+    console.log(card.parentNode)
+    card.parentNode.remove();
+    const idBook = card.parentNode.id;
+    const indexToRemove = myLibrary.findIndex (item => item.id === idBook);
+
+    if (indexToRemove !== -1) {
+      myLibrary.splice(indexToRemove, 1);
+    }
+
+  })
+})
+
   }
     
 
@@ -122,21 +137,7 @@ submitButton.addEventListener("click", (event) => {
   dialog.close();
 })
 
-const deleteButton = document.querySelectorAll(".delete-button");
-deleteButton.forEach((card) => {
-  card.addEventListener("click", () => {
-    console.log(card.parentNode)
-    card.parentNode.remove();
-    const idBook = card.parentNode.id;
-    const indexToRemove = myLibrary.findIndex (item => item.id === idBook);
 
-    if (indexToRemove !== -1) {
-      myLibrary.splice(indexToRemove, 1);
-    }
-
-    
-  })
-})
 
 
 
