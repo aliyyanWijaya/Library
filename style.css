@@ -8,9 +8,6 @@ body {
     : Roboto;
 }
 
-div {
-    border: 2px solid black;
-}
 
 .header {
     grid-area: header;
@@ -25,10 +22,9 @@ div {
     display: grid;
     gap: 8px;
     padding: 4px;
-    border: 1px solid grey;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 .dialog-section {
@@ -46,7 +42,7 @@ button {
 .new-book-button {
   display: inline-block;
   border-radius: 4px;
-  background-color: #f4511e;
+  background-color: #04AA6D;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -55,7 +51,7 @@ button {
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 20px;
 }
 
 .new-book-button span {
@@ -85,9 +81,173 @@ button {
 
 .book-container div {
   padding: 5px;
+  
 }
 
 .book-container {
   display: grid;
-  gap: 2px
+  gap: 2px;
+  border: 2px solid;
+  padding: 5px;
 }
+
+.edit-button {
+  background-color: #008CBA;
+  color: white; 
+  border: 2px solid black;
+  padding: 5px;
+  width: 60%;
+  justify-self: center;
+  margin-top: 5px;
+}
+
+.edit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.delete-button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+  padding: 5px;
+  width: 60%;
+  justify-self: center;
+}
+
+.delete-button:hover {
+   background-color: #f44336;
+  color: white;
+}
+
+/*
+dialog[open] {
+  display: grid;
+}
+
+dialog[open] p {
+  justify-self: center;
+  font-size: larger;
+}
+
+dialog[open] form {
+  display: grid;
+  grid-column: auto;
+}
+
+form input {
+  border-radius: 5px;
+  padding: 3px;
+}
+
+form p {
+  font-size: smaller;
+  justify-self: start;
+}
+  */
+
+.dialog-section dialog {
+  width: 400px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog-section p {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: #222;
+}
+
+.dialog-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dialog-section label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dialog-section input[type="text"],
+.dialog-section input[type="number"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.dialog-section input[type="text"]:focus,
+.dialog-section input[type="number"]:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+/* READ SECTION - Radio Buttons */
+.read-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.read-options {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.read-options label {
+  font-weight: normal;
+}
+
+/* BUTTONS */
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dialog-section .submit,
+.dialog-section .close-button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dialog-section .submit {
+  background-color: #0077cc;
+  color: white;
+}
+
+.dialog-section .submit:hover {
+  background-color: #005fa3;
+}
+
+.dialog-section .close-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.dialog-section .close-button:hover {
+  background-color: #cfcfcf;
+}
+
+.read-options input {
+  align-self: flex-start;
+}
+
